@@ -1,0 +1,40 @@
+.feed-card {
+    margin-bottom: 1rem;
+    padding: 2rem 4rem;
+}
+
+.comment-box input {
+    width: 100%;
+    border: none;
+    background-color: rgb(230, 230, 230);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+}
+
+.comment-box input:focus {
+    outline: none;
+}
+.feed-content-wrapper {
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.feed-content {
+    width: 100%;
+    padding: 1rem;
+}
+
+.feed-owner {
+    color: rgb(82, 156, 195);
+    font-weight: bold;
+}
+
+.content {
+    font-size: 1.5rem;
+}
+
+.author {
+    margin-top: 1rem;
+    font-size: 1rem;
+}

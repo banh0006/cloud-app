@@ -1,0 +1,13 @@
+.comment {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    border-radius: 20px;
+    background-color: rgb(175, 202, 250);
+    margin-bottom: 0.5rem;
+}
+
+.comment-owner {
+    font-weight: bold;
+    color: rgb(82, 156, 195);
+}
+
