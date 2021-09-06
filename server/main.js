@@ -1,8 +1,8 @@
 import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
-import { LinksCollection } from '/imports/api/links'
 import { FeedsCollection } from '/imports/api/feeds'
 import { CommentsCollection } from '/imports/api/comments'
+import './imports/Server-side-file-store'
 
 // set up first default user to login
 const SEED_USEREMAIL = 'phucthien@gmail.com'

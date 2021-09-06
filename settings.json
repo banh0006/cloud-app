@@ -1,0 +1,8 @@
+{
+    "s3": {
+      "key": "AKIAXAG2P4SEKJKSASCG",
+      "secret": "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",
+      "bucket": "simple-social-media",
+      "region": "ca-central-1"
+    }
+}

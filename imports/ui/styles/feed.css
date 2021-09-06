@@ -25,6 +25,15 @@
     padding: 1rem;
 }
 
+.feed-image {
+    max-width: 80%;
+}
+
+.image-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .feed-owner {
     color: rgb(82, 156, 195);
     font-weight: bold;

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Meteor } from 'meteor/meteor'
 import { useTracker } from 'meteor/react-meteor-data'
+
 import { FeedsCollection } from '../../api/feeds'
 import Feed from '../components/Feed'
+import UploadModal from '../components/UploadModal'
+
 import '../styles/homepage.css'
 import { Container, InputGroup, FormControl, Button } from 'react-bootstrap'
 import Navbar from '../components/TopNavBar'
@@ -10,6 +13,7 @@ import Navbar from '../components/TopNavBar'
 export default function Home() {
     const [newFeed, setNewFeed] = useState('')
     const [displayFeeds, setDisplayFeeds] = useState(<div></div>)
+    const [showUploadModal, setShowUploadModal] = useState(false)
 
     const allFeeds = useTracker(() => {
         Meteor.subscribe('getAllFeeds')
@@ -25,6 +29,7 @@ export default function Home() {
                 userId: userId, 
                 createdAt: Date.now(), 
                 updatedAt: Date.now(), 
+                type: "Text",
                 feedContent: newFeed
             }, function(err, result) {
                 if (err) {
@@ -62,8 +67,15 @@ export default function Home() {
                     <Button variant="success" onClick={createFeed}>
                         Create
                     </Button>
+                    
+                    <Button variant="info" onClick={e => setShowUploadModal(true)}>
+                        Upload Image
+                    </Button>
                 </InputGroup>
                 {displayFeeds}
+                <div>
+                    <UploadModal show={showUploadModal} setShow={setShowUploadModal} />
+                </div>
             </Container>
         </div>
     )

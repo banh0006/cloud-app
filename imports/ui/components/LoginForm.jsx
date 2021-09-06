@@ -94,7 +94,11 @@ export default function LoginForm() {
                     />
                 </Col>
             </Row>
-            <Row><Button type="submit" variant="primary">{ isLoggingIn ? "Log In" : "Sign up" }</Button></Row>
+            <Row>
+                <Button type="submit" variant="primary">
+                    { isLoggingIn ? "Log In" : "Sign up" }
+                </Button>
+            </Row>
             <Row>
                 <Button variant="success" className="my-3" onClick={createAccountClick}>
                     { isLoggingIn ? "Create new account" : "Cancel" }

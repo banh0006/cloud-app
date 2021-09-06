@@ -12,7 +12,7 @@ export default function Feed({ feed }) {
     const [feedOwner, setFeedOwner] = useState('')
     const [displayComments, setDisplayComments] = useState(<div></div>)
 
-    //get all comment of the feed
+    // Get all comment of the feed
     const allComments = useTracker(() => {
         Meteor.subscribe('getCommentOnFeed', { feedId: feed._id })
         return CommentsCollection.find({ feedId: feed._id }, {sort: {createdAt: 1}}).fetch()
@@ -30,7 +30,6 @@ export default function Feed({ feed }) {
                     content: value
                 }, function(err, result) {
                     if (err) {
-                        console.log(err)
                         alert("Something went wrong, please try again!")
                     }
                 })
@@ -39,6 +38,23 @@ export default function Feed({ feed }) {
             }
         }
     }
+
+    const renderFeedContent = 
+        feed.type === "Text" 
+        ? (
+            <div className="feed-content">
+                <div className="content">{feed.feedContent}</div>
+                <div className="author">Created by <span className="feed-owner">{feedOwner}</span></div>
+            </div>
+            
+        ) : (
+            <div className="feed-content">
+                <div className="image-wrapper">
+                    <img className="feed-image" src={feed.imageLink} alt={feed.imageLink} />
+                </div>
+                <div className="author">Created by <span className="feed-owner">{feedOwner}</span></div>
+            </div>
+        )
 
     useEffect(() => {
         Meteor.call('getUserEmailById', feed.userId, function(err, result) {
@@ -73,10 +89,7 @@ export default function Feed({ feed }) {
             </div>
             <hr />
             <div className="feed-content-wrapper">
-                <div className="feed-content">
-                    <div className="content">{feed.feedContent}</div>
-                    <div className="author">Created by <span className="feed-owner">{feedOwner}</span></div>
-                </div>
+                {renderFeedContent}
             </div>
             <hr />
             <div className="feed-comments">

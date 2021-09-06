@@ -9,7 +9,7 @@ export default function TopNavBar({ email }) {
     const signout = () => {
         Meteor.logout()
         history.push("/")
-}
+    }
 
     return (
         <Navbar fixed="top" className="navbar-dark bg-dark">
